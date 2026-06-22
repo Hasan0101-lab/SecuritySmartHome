@@ -162,3 +162,6 @@ def device_sync():
         "kapi_komutu": kapi_emri,
         "wifi_komutu": wifi_emri
     }), 200
+@app.route('/api/ping', methods=['GET'])
+def cron_ping():
+    return "OK", 200
