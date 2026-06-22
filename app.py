@@ -2,8 +2,11 @@ import sqlite3
 from flask import Flask, jsonify, request, render_template_string
 
 app = Flask(__name__)
+@app.after_request
+def add_security_headers(response):
+    response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload'
+    return response
 DB_FILE = "smarthome.db"
-
 # --- VERİ TABANI ALTYAPISI (REAL SQL) ---
 def init_db():
     """Uygulama açılırken veri tabanını ve tabloları gerçek dünyadaki gibi oluşturur."""
