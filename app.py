@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request, make_response
 import datetime
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 app = Flask(__name__)
 
 # --- GÜVENLİK ANAHTARI (TOKEN) ---
